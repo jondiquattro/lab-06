@@ -25,7 +25,7 @@ app.get('/location', (request, response)=>{
 function searchToLatLong(query){
   const geoData = require('./data/geo.json');
   const location = new Location (geoData.results[0]);
-//   console.log(geoData.results[0]);
+  //   console.log(geoData.results[0]);
   location.search_query = query;
   return location;
 
@@ -48,27 +48,25 @@ app.get('/weather', (request, response)=>{
 
 function searchWeatherInfo(){
   const weatherInfo = require('./data/darksky.json');
-  const weather = weatherInfo.daily.data;
-//   const arr=[];
-//   let forecast ='';
-//   let time = '';
+  const weather = weatherInfo.daily.data; //is an array of eight day objects
+  const arr=[];
+  //   let forecast ='';
+  //   let time = '';
 
-//   weather.array.forEach(element => {
-//       forecast = element.forecast;
-//       time = element.time;
-//       console.log(time);
-//       arr.push({forecast,time});
-//   });
+  for(let i =0; i<weather.length; i++){
+    console.log(weather[i].time);
+    arr.push({forcast: weather[i].time, time: weather[i].time})
 
-//   const weather = new Weather (weatherInfo.daily.data);
-//
+  }
+  //   const weather = new Weather (weatherInfo.daily.data);
+  //
 
   
-  console.log(weather)[1];
+  console.log(weather.length);
     
-//   weather.search_query = query;
+  //   weather.search_query = query;
 
-  return weather;//getting sent to the website
+  return arr;//getting sent to the website
 }
 
 // function Weather(daily){
