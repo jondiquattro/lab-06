@@ -61,6 +61,7 @@ function searchWeatherInfo(){
 //   });
 
 //   const weather = new Weather (weatherInfo.daily.data);
+//
 
   
   console.log(weather)[1];
